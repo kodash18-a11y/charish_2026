@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Просто до глубины души · Семейный выезд в Чарыш · 23–28 июля</title>
+<meta name="description" content="Семейный выезд в Чарыш с Chilling Mama. 23–28 июля. Алтай, родители и дети от 6 лет, хороводы, кони, сплавы, глина, лесные ванны.">
+
+<style>
+/* ===== ШРИФТЫ ===== */
+@font-face {
+  font-family: 'Dobrozrachniy';
+  src: url('assets/fonts/Dobrozrachniy-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geometria';
+  src: url('assets/fonts/Geometria.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geometria';
+  src: url('assets/fonts/Geometria-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== ПЕРЕМЕННЫЕ ===== */
+:root {
+  --cream: #f5f1ea;
+  --cream-deep: #ebe5da;
+  --black: #0a0a0a;
+  --black-soft: #1a1a1a;
+  --red: #87000d;
+  --red-bright: #a8001a;
+  --gold: #b8a16a;
+  --white: #ffffff;
+  --text-muted: #6a6a6a;
+  --text-muted-dark: #8a8a8a;
+  --border-light: rgba(10, 10, 10, 0.12);
+  --border-dark: rgba(255, 255, 255, 0.14);
+
+  --font-display: 'Dobrozrachniy', Georgia, serif;
+  --font-body: 'Geometria', -apple-system, sans-serif;
+
+  --container: 1440px;
+  --gutter: 80px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ===== БАЗА ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  background: var(--cream);
+  color: var(--black);
+  line-height: 1.5;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ===== УТИЛИТЫ ===== */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.section { padding: 140px 0; position: relative; }
+.section--dark { background: var(--black); color: var(--cream); }
+.section--cream { background: var(--cream); }
+
+.section-num {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.section--dark .section-num { color: var(--text-muted-dark); }
+.section-num::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+.h-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.h-display .accent { color: var(--red); }
+.section--dark .h-display .accent { color: var(--red-bright); }
+
+.h-medium {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+
+.lead {
+  font-size: clamp(18px, 1.4vw, 22px);
+  line-height: 1.55;
+  font-weight: 400;
+  max-width: 760px;
+}
+
+/* ===== АНИМАЦИИ ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+}
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in {
+  opacity: 0;
+  transition: opacity 1.4s var(--ease);
+}
+.fade-in.is-visible { opacity: 1; }
+
+.stagger > * { transition-delay: 0ms; }
+.stagger > *:nth-child(2) { transition-delay: 120ms; }
+.stagger > *:nth-child(3) { transition-delay: 240ms; }
+.stagger > *:nth-child(4) { transition-delay: 360ms; }
+.stagger > *:nth-child(5) { transition-delay: 480ms; }
+.stagger > *:nth-child(6) { transition-delay: 600ms; }
+
+/* ===== ШАПКА ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 24px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(245, 241, 234, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.5s var(--ease);
+}
+.header.is-hidden { transform: translateY(-100%); }
+.header__logo { display: flex; align-items: center; }
+.header__logo img { height: 44px; width: auto; }
+.header__dates {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.header__cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: var(--red);
+  color: var(--cream);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.header__cta:hover {
+  background: var(--red-bright);
+  transform: translateY(-1px);
+}
+.header__cta svg { width: 16px; height: 16px; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--cream);
+  display: flex;
+  align-items: flex-end;
+  padding: 120px var(--gutter) 80px;
+  overflow: hidden;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/img/hero/hero.jpeg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+.hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.35) 40%, rgba(10,10,10,0.85) 100%);
+}
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.hero__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: clamp(60px, 12vh, 140px);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.9;
+}
+.hero__epigraph {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--cream);
+  opacity: 0.85;
+  margin-bottom: 36px;
+  max-width: 540px;
+  text-transform: none;
+  font-weight: 400;
+}
+.hero__epigraph span { display: block; }
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(54px, 8vw, 130px);
+  line-height: 0.92;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  color: var(--cream);
+}
+.hero__title .accent { color: var(--red-bright); display: inline-block; }
+.hero__subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2vw, 28px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 48px;
+}
+.hero__dates {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid var(--cream);
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 56px;
+}
+.hero__cta-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 32px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.4s var(--ease);
+  border: 1px solid transparent;
+}
+.btn--primary {
+  background: var(--red);
+  color: var(--cream);
+}
+.btn--primary:hover {
+  background: var(--red-bright);
+  transform: translateY(-2px);
+}
+.btn--ghost {
+  border-color: var(--cream);
+  color: var(--cream);
+  background: transparent;
+}
+.btn--ghost:hover {
+  background: var(--cream);
+  color: var(--black);
+  transform: translateY(-2px);
+}
+.btn svg { width: 18px; height: 18px; }
+
+.hero__scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.6;
+  z-index: 2;
+}
+.hero__scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--cream);
+  margin: 12px auto 0;
+  animation: scrollLine 2.4s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0%, 100% { transform: scaleY(0.3); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+}
+
+/* ===== РАЗДЕЛИТЕЛЬ-ПАТТЕРН ===== */
+.divider-pattern {
+  height: 60px;
+  background-image: url('assets/patterns/pattern-red-rhombus.png');
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: center;
+}
+.divider-pattern--dark {
+  height: 80px;
+  background-color: var(--black);
+  background-image: url('assets/patterns/pattern-red-deer.png');
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  filter: hue-rotate(0deg) brightness(1.1);
+}
+
+/* ===== О МЕСТЕ ===== */
+.about {
+  padding: 160px 0;
+}
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 120px;
+  align-items: start;
+}
+.about__title {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 7vw, 110px);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+}
+.about__title .accent { color: var(--red); }
+.about__text {
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--black);
+}
+.about__text p + p { margin-top: 24px; }
+
+/* ===== ПРОСТРАНСТВО (тёмная секция с фактами) ===== */
+.space {
+  background: var(--black);
+  color: var(--cream);
+  padding: 160px 0;
+}
+.space__intro {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 100px;
+  margin-bottom: 100px;
+  align-items: end;
+}
+.space__title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 5vw, 78px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.space__title .accent { color: var(--red-bright); }
+.space__text {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(245, 241, 234, 0.85);
+}
+
+.space__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.space__item {
+  background: var(--black);
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: background 0.4s var(--ease);
+}
+.space__item:hover { background: var(--black-soft); }
+.space__item-key {
+  font-family: var(--font-display);
+  font-size: 30px;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  line-height: 1.1;
+}
+.space__item-val {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(245, 241, 234, 0.9);
+}
+
+/* ===== СУТЬ ВЫЕЗДА (3 колонки) ===== */
+.essence {
+  padding: 160px 0;
+  background: var(--cream);
+}
+.essence__lead {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4.5vw, 64px);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 120px;
+  max-width: 1100px;
+}
+.essence__lead .accent { color: var(--red); }
+.essence__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
+.essence__card {
+  border-top: 1px solid var(--black);
+  padding-top: 32px;
+}
+.essence__card-num {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  margin-bottom: 24px;
+  color: var(--red);
+}
+.essence__card-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.essence__card-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--black);
+}
+
+/* ===== ПРОГРАММА (10 карточек) ===== */
+.program {
+  background: var(--cream-deep);
+  padding: 160px 0;
+}
+.program__header {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 100px;
+}
+.program__title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 92px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.program__title .accent { color: var(--red); }
+.program__intro {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.program__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--border-light);
+  border: 1px solid var(--border-light);
+}
+.program__item {
+  background: var(--cream-deep);
+  padding: 40px 28px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.4s var(--ease);
+}
+.program__item:hover { background: var(--cream); }
+.program__item-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--red);
+  letter-spacing: 0.1em;
+}
+.program__item-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-top: auto;
+}
+.program__item-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* ===== АКЦЕНТ-ФОТО ХОРОВОДЫ ===== */
+.horovod-feature {
+  padding: 0;
+  background: var(--cream);
+}
+.horovod-feature__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+}
+.horovod-feature__text {
+  padding: 100px var(--gutter);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--cream);
+}
+.horovod-feature__title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  letter-spacing: -0.01em;
+}
+.horovod-feature__title .accent { color: var(--red); }
+.horovod-feature__text p {
+  font-size: 17px;
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+.horovod-feature__img {
+  background-size: cover;
+  background-position: center;
+}
+.horovod-feature__img--1 { background-image: url('assets/img/horovod/horovod-1.png'); }
+.horovod-feature__img--2 { background-image: url('assets/img/horovod/horovod-2.png'); }
+.horovod-feature__img--atm { background-image: url('assets/img/atmosphere/atm-3.png'); }
+
+.quote-pre {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+.quote-dialog {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-light);
+}
+.quote-line {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.6vw, 38px);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  margin-bottom: 20px;
+}
+.quote-line--accent { color: var(--red); }
+
+/* ===== ДНИ (АККОРДЕОН) ===== */
+.days {
+  padding: 160px 0;
+  background: var(--cream);
+}
+.days__header { margin-bottom: 80px; }
+.days__title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 92px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+.days__title .accent { color: var(--red); }
+.days__sub {
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+.day {
+  border-top: 1px solid var(--black);
+}
+.day:last-child { border-bottom: 1px solid var(--black); }
+
+.day__head {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  align-items: center;
+  gap: 40px;
+  padding: 36px 0;
+  cursor: pointer;
+  transition: padding 0.4s var(--ease);
+  user-select: none;
+}
+.day__head:hover { padding-left: 16px; }
+.day__num {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  color: var(--red);
+}
+.day__name {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 44px);
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.005em;
+}
+.day__toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s var(--ease), background 0.3s var(--ease);
+}
+.day__toggle::before,
+.day__toggle::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 1px;
+  background: var(--black);
+  transition: transform 0.5s var(--ease);
+}
+.day__toggle::after { transform: rotate(90deg); }
+.day.is-open .day__toggle { background: var(--black); }
+.day.is-open .day__toggle::before { background: var(--cream); }
+.day.is-open .day__toggle::after { transform: rotate(0deg); background: var(--cream); }
+
+.day__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s var(--ease);
+}
+.day.is-open .day__body { max-height: 3000px; }
+.day__body-inner {
+  padding: 16px 0 60px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 40px;
+}
+.day__schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.day__schedule-item {
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: 20px;
+  position: relative;
+}
+.day__schedule-item::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--red);
+}
+.day__schedule-item strong {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 4px;
+}
+.day__schedule-item p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.55;
+  margin-top: 6px;
+}
+
+.day__photos {
+  margin-top: 36px;
+  display: grid;
+  gap: 12px;
+}
+.day__photos--3 { grid-template-columns: repeat(3, 1fr); }
+.day__photos--4 { grid-template-columns: repeat(2, 1fr); }
+.day__photos--mix {
+  grid-template-columns: repeat(3, 1fr);
+}
+.day__photos img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  filter: grayscale(0%);
+  transition: transform 0.7s var(--ease), filter 0.4s var(--ease);
+}
+.day__photos img:hover {
+  transform: scale(1.02);
+}
+
+/* ===== КОННОЕ — ОТДЕЛЬНЫЙ ВИЗУАЛ ===== */
+.horses-feature {
+  position: relative;
+  background: var(--black);
+  color: var(--cream);
+  padding: 0;
+  overflow: hidden;
+}
+.horses-feature__head {
+  padding: 140px var(--gutter) 80px;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.horses-feature__title {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 8vw, 130px);
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+}
+.horses-feature__title .accent { color: var(--red-bright); }
+.horses-feature__lead {
+  font-size: 19px;
+  line-height: 1.6;
+  max-width: 580px;
+  color: rgba(245, 241, 234, 0.85);
+}
+.horses-feature__gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+}
+.horses-feature__gallery img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  transition: transform 1s var(--ease);
+}
+.horses-feature__gallery img:hover { transform: scale(1.03); }
+
+/* ===== ЛОКАЦИЯ ===== */
+.location {
+  padding: 160px 0;
+  background: var(--cream);
+}
+.location__head {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  margin-bottom: 80px;
+  align-items: end;
+}
+.location__title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 92px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.location__title .accent { color: var(--red); }
+.location__sub {
+  font-family: var(--font-display);
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+.location__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+}
+.location__card {
+  position: relative;
+  overflow: hidden;
+}
+.location__card img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+.location__card:hover img { transform: scale(1.05); }
+
+.location__features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding-top: 60px;
+  border-top: 1px solid var(--border-light);
+}
+.location__feature-num {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--red);
+  margin-bottom: 16px;
+  letter-spacing: 0.1em;
+}
+.location__feature-text {
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+/* ===== КОМАНДА ===== */
+.team {
+  padding: 160px 0;
+  background: var(--cream-deep);
+}
+.team__head { margin-bottom: 80px; }
+.team__title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 92px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.team__title .accent { color: var(--red); }
+
+.team__group-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 32px;
+  display: inline-block;
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 6px;
+}
+
+.team__row {
+  display: grid;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+.team__row--2 { grid-template-columns: repeat(2, 1fr); }
+.team__row--3 { grid-template-columns: repeat(3, 1fr); }
+
+.team__card {
+  display: flex;
+  flex-direction: column;
+}
+.team__card-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  margin-bottom: 24px;
+  background: var(--cream);
+}
+.team__card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+.team__card:hover .team__card-photo img { transform: scale(1.04); }
+.team__card-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 12px;
+  letter-spacing: -0.005em;
+}
+.team__card-role {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ===== ЦЕНА (ПЛЕЙСХОЛДЕР) ===== */
+.price {
+  padding: 140px 0;
+  background: var(--black);
+  color: var(--cream);
+}
+.price__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.price__title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.price__title .accent { color: var(--red-bright); }
+.price__text {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(245, 241, 234, 0.8);
+}
+.price__placeholder {
+  border: 1px dashed rgba(245, 241, 234, 0.25);
+  padding: 60px;
+  text-align: center;
+}
+.price__placeholder-label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 234, 0.5);
+  margin-bottom: 12px;
+}
+.price__placeholder-text {
+  font-family: var(--font-display);
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+/* ===== ЭПИЛОГ ===== */
+.epilogue {
+  padding: 180px 0;
+  background: var(--cream);
+  text-align: center;
+}
+.epilogue__pre {
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 80px;
+  color: var(--black);
+}
+.epilogue__pre p + p { margin-top: 16px; }
+.epilogue__dialog {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.epilogue__line {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 52px);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  margin-bottom: 24px;
+}
+.epilogue__line:last-child {
+  color: var(--red);
+}
+
+/* ===== О CHILLING MAMA ===== */
+.about-cm {
+  padding: 140px 0;
+  background: var(--cream-deep);
+  text-align: center;
+}
+.about-cm__label {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 32px;
+  color: var(--red);
+}
+.about-cm__text {
+  font-size: 18px;
+  line-height: 1.65;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--black);
+}
+
+/* ===== ФИНАЛЬНАЯ CTA ===== */
+.cta-final {
+  padding: 160px 0;
+  background: var(--black);
+  color: var(--cream);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-final__pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/patterns/pattern-red-deer.png');
+  background-size: 600px auto;
+  background-repeat: repeat;
+  opacity: 0.05;
+}
+.cta-final__inner {
+  position: relative;
+  z-index: 1;
+}
+.cta-final__title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 110px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  margin-bottom: 32px;
+}
+.cta-final__title .accent { color: var(--red-bright); }
+.cta-final__dates {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: 1px solid var(--cream);
+  margin-bottom: 56px;
+}
+.cta-final__btns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===== ФУТЕР ===== */
+.footer {
+  background: var(--black);
+  color: var(--cream);
+  padding: 80px var(--gutter) 40px;
+  border-top: 1px solid var(--border-dark);
+}
+.footer__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  margin-bottom: 60px;
+}
+.footer__logo img { height: 44px; }
+.footer__cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.footer__col-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 234, 0.5);
+  margin-bottom: 16px;
+}
+.footer__col a, .footer__col p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--cream);
+  display: block;
+  transition: color 0.3s var(--ease);
+}
+.footer__col a:hover { color: var(--red-bright); }
+.footer__bottom {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-dark);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(245, 241, 234, 0.5);
+  letter-spacing: 0.06em;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 1100px) {
+  :root { --gutter: 40px; }
+  .about__grid,
+  .space__intro,
+  .program__header,
+  .location__head,
+  .price__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .essence__grid,
+  .program__grid,
+  .location__features,
+  .team__row--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .essence__grid { grid-template-columns: repeat(2, 1fr); }
+  .program__grid { grid-template-columns: repeat(2, 1fr); }
+  .horses-feature__gallery { grid-template-columns: 1fr; }
+  .horses-feature__gallery img { height: 50vh; }
+  .horovod-feature__inner { grid-template-columns: 1fr; }
+  .horovod-feature__img { min-height: 50vh; }
+  .footer__inner { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 720px) {
+  :root { --gutter: 20px; }
+  .section { padding: 80px 0; }
+  .header { padding: 16px 20px; }
+  .header__logo img { height: 28px; }
+  .header__logo-text { display: none; }
+  .header__dates { display: none; }
+  .header__cta { padding: 10px 14px; font-size: 10px; }
+  .hero { padding: 100px 20px 60px; min-height: 100vh; }
+  .hero__meta { font-size: 10px; flex-direction: column; gap: 12px; }
+  .hero__cta-group { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+  .about, .space, .essence, .program, .days, .location, .team, .price, .epilogue, .about-cm, .cta-final { padding: 80px 0; }
+  .essence__grid, .program__grid, .location__grid, .location__features, .team__row--2, .team__row--3, .footer__cols, .space__list {
+    grid-template-columns: 1fr;
+  }
+  .day__head { grid-template-columns: 60px 1fr 36px; gap: 16px; padding: 24px 0; }
+  .day__body-inner { grid-template-columns: 1fr; gap: 16px; }
+  .day__photos--3, .day__photos--mix { grid-template-columns: 1fr; }
+  .day__photos img { height: 200px; }
+  .footer__bottom { flex-direction: column; gap: 12px; }
+  .hero__title { font-size: 44px; }
+  .horses-feature__head { padding: 60px 20px 40px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header" id="header">
+  <div class="header__logo">
+    <img src="assets/logo/logo_header.png" alt="Чарыш — деревенский курорт">
+  </div>
+  <div class="header__dates">23—28 июля</div>
+  <a href="#cta" class="header__cta">
+    Записаться
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__inner">
+    <div class="hero__meta fade-in">
+      <span>01 · Chilling Mama × Чарыш</span>
+      <span>Алтай · Чарышский район</span>
+    </div>
+
+    <div class="hero__epigraph fade-up">
+      <span>— Кем ты хочешь стать, когда вырастешь?</span>
+      <span>— Счастливым. Собой.</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Семейный<br>
+      <span class="accent">выезд</span><br>
+      в Чарыш
+    </h1>
+
+    <div class="hero__subtitle fade-up">Просто до глубины души</div>
+
+    <div class="hero__dates fade-up">23 — 28 июля · 6 дней</div>
+
+    <div class="hero__cta-group fade-up">
+      <a href="https://t.me/annashm888" target="_blank" class="btn btn--primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+        Telegram
+      </a>
+      <a href="https://max.ru/u/f9LHodD0cOJHyWlsvPA_5-yKotrTOaRc1keJ10b9jn6amk7fs1Y5GaFRgUw" target="_blank" class="btn btn--ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20l3-8 6 4 6-12 3 16z"/></svg>
+        MAX
+      </a>
+    </div>
+  </div>
+  <div class="hero__scroll">прокрутить</div>
+</section>
+
+<!-- О МЕСТЕ -->
+<section class="about section--cream">
+  <div class="container">
+    <div class="section-num fade-up">02 · О месте</div>
+    <div class="about__grid">
+      <h2 class="about__title fade-up">
+        Чарыш —<br>
+        село на <span class="accent">Алтае</span>
+      </h2>
+      <div class="about__text fade-up">
+        <p>Место скифов, казаков, староверов — живых хранителей традиций, среди мягких гор, рек и Коргонского хребта, среди нетронутой природы Алтая.</p>
+        <p>Есть места, где список дел простой до глубины души: встретить рассвет у озера, сходить за тёплым хлебом, напиться чистой воды, подышать, проводить закат верхом. И почему-то именно там начинаешь чувствовать себя более живым.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-pattern fade-in"></div>
+
+<!-- ПРОСТРАНСТВО -->
+<section class="space">
+  <div class="container">
+    <div class="section-num fade-up">03 · Пространство</div>
+    <div class="space__intro">
+      <h2 class="space__title fade-up">
+        Где жизнь<br>не отделена<br>
+        от <span class="accent">человека</span>
+      </h2>
+      <p class="space__text fade-up">
+        Пространство, где жизнь не отделена от человека, а богатство и изобилие ощущается иначе. Здесь тело в естественной среде постепенно вспоминает себя, выпрямляет осанку и расправляет крылья.
+      </p>
+    </div>
+
+    <div class="space__list stagger">
+      <div class="space__item fade-up">
+        <div class="space__item-key">Вода</div>
+        <div class="space__item-val">Течёт со склонов гор и наполняет каждого живыми минералами.</div>
+      </div>
+      <div class="space__item fade-up">
+        <div class="space__item-key">Воздух</div>
+        <div class="space__item-val">Исцеляет с каждым вдохом.</div>
+      </div>
+      <div class="space__item fade-up">
+        <div class="space__item-key">Земля</div>
+        <div class="space__item-val">Босыми ногами ходят по необработанному мрамору, а хранители места собирают травы, работают с деревом и глиной, которой миллионы лет, варят сыр и топят баню с самого утра.</div>
+      </div>
+      <div class="space__item fade-up">
+        <div class="space__item-key">Тело</div>
+        <div class="space__item-val">В естественной среде постепенно вспоминает себя, выпрямляет осанку и расправляет крылья.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- СУТЬ -->
+<section class="essence">
+  <div class="container">
+    <div class="section-num fade-up">04 · Про что этот выезд</div>
+    <h2 class="essence__lead fade-up">
+      Это выезд про <span class="accent">напитывание.</span><br>
+      Про возвращение к простоте,<br>
+      вниманию и присутствию.
+    </h2>
+
+    <div class="essence__grid stagger">
+      <div class="essence__card fade-up">
+        <div class="essence__card-num">01</div>
+        <h3 class="essence__card-title">Место силы</h3>
+        <p class="essence__card-text">Откуда уезжаешь внутренне собранным, спокойным и чуть более смелым до настоящей жизни.</p>
+      </div>
+      <div class="essence__card fade-up">
+        <div class="essence__card-num">02</div>
+        <h3 class="essence__card-title">Совместность</h3>
+        <p class="essence__card-text">В которой родитель и ребёнок проживают жизнь рядом — лепят, поют, едут верхом, готовят баню, молчат у воды. Так рождаются семейные ритуалы, традиции, свой язык и общие воспоминания.</p>
+      </div>
+      <div class="essence__card fade-up">
+        <div class="essence__card-num">03</div>
+        <h3 class="essence__card-title">Естественное состояние</h3>
+        <p class="essence__card-text">Через воздух, чистую воду, людей, движение, тишину, дыхание, природу и отсутствие информационного шума человек возвращается к себе.</p>
+      </div>
+      <div class="essence__card fade-up">
+        <div class="essence__card-num">04</div>
+        <h3 class="essence__card-title">Люди-гении</h3>
+        <p class="essence__card-text">Здесь рядом гении этого места, у которых между идеей и воплощением — один шаг. Люди ремесла, действия и простой счастливой жизни.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОГРАММА -->
+<section class="program">
+  <div class="container">
+    <div class="section-num fade-up">05 · В программе выезда</div>
+    <div class="program__header">
+      <h2 class="program__title fade-up">
+        Десять <span class="accent">встреч</span><br>
+        с собой
+      </h2>
+      <p class="program__intro fade-up">
+        Каждый день — новый ритуал. Совместное творчество и быт с гениями и хранителями места, дыхание, ремесло, музыка, природа, тишина.
+      </p>
+    </div>
+
+    <div class="program__grid stagger">
+      <div class="program__item fade-up">
+        <div class="program__item-num">01</div>
+        <div>
+          <h3 class="program__item-title">Дыхание</h3>
+          <p class="program__item-sub">Чтоб снова почувствовать тело</p>
+        </div>
+      </div>
+      <div class="program__item fade-up">
+        <div class="program__item-num">02</div>
+        <div>
+          <h3 class="program__item-title">Лесные ванны</h3>
+          <p class="program__item-sub">Тихий spa-ритуал</p>
+        </div>
+      </div>
+      <div class="program__item fade-up">
+        <div class="program__item-num">03</div>
+        <div>
+          <h3 class="program__item-title">Ремесло и глина</h3>
+          <p class="program__item-sub">Встреча с первоисточником</p>
+        </div>
+      </div>
+      <div class="program__item fade-up">
+        <div class="program__item-num">04</div>
+        <div>
+          <h3 class="program__item-title">Музыка и хороводы</h3>
+          <p class="program__item-sub">Путь объединения</p>
+        </div>
+      </div>
+      <div class="program__item fade-up">
+        <div class="program__item-num">05</div>
+        <div>
+          <h3 class="program__item-title">Кони</h3>
+          <p class="program__item-sub">Другой способ передвижения</p>
+        </div>
+      </div>
+      <div class="program__item fade-up">
+        <div class="program__item-num">06</div>
+        <div>
+          <h3 class="program__item-title">Сплавы и привалы</h3>
+          <p class="program__item-sub">Среди нетронутой красоты</p>
+        </div>
+      </div>
+      <div class="program__item fade-up">
+        <div class="program__item-num">07</div>
+        <div>
+          <h3 class="program__item-title">Вездеходы</h3>
+          <p class="program__item-sub">Приключения по горным рекам</p>
+        </div>
+      </div>
+      <div class="program__item fade-up">
+        <div class="program__item-num">08</div>
+        <div>
+          <h3 class="program__item-title">Сбор трав</h3>
+          <p class="program__item-sub">С местными знахарями</p>
+        </div>
+      </div>
+      <div class="program__item fade-up">
+        <div class="program__item-num">09</div>
+        <div>
+          <h3 class="program__item-title">Вечерние бани</h3>
+          <p class="program__item-sub">Язык контакта с собой</p>
+        </div>
+      </div>
+      <div class="program__item fade-up">
+        <div class="program__item-num">10</div>
+        <div>
+          <h3 class="program__item-title">Сказки</h3>
+          <p class="program__item-sub">Метафорическое путешествие</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЭПИЛОГ-ЦИТАТА -->
+<section class="horovod-feature">
+  <div class="horovod-feature__inner">
+    <div class="horovod-feature__text fade-up">
+      <p class="quote-pre">И главное, что происходит здесь — жизнь снова становится простой.</p>
+      <p class="quote-pre">А в этой простоте человек начинает слышать себя и ещё сильнее — любить тех, кто рядом.</p>
+      <div class="quote-dialog">
+        <div class="quote-line">— Так кем ты хочешь стать, когда уже вырос?</div>
+        <div class="quote-line quote-line--accent">— Счастливым с Собой.<br>И тем, кто умеет быть счастливым вместе.</div>
+      </div>
+    </div>
+    <div class="horovod-feature__img horovod-feature__img--atm fade-in"></div>
+  </div>
+</section>
+
+<!-- ДНИ — АККОРДЕОН -->
+<section class="days">
+  <div class="container">
+    <div class="section-num fade-up">06 · Программа по дням</div>
+    <div class="days__header">
+      <h2 class="days__title fade-up">
+        Шесть дней.<br>
+        <span class="accent">Одна жизнь.</span>
+      </h2>
+      <p class="days__sub fade-up">Нажмите, чтобы раскрыть день</p>
+    </div>
+
+    <!-- ДЕНЬ 1 -->
+    <div class="day fade-up">
+      <div class="day__head">
+        <div class="day__num">01 · 23 июля</div>
+        <div class="day__name">Заезд</div>
+        <div class="day__toggle"></div>
+      </div>
+      <div class="day__body">
+        <div class="day__body-inner">
+          <div></div>
+          <div class="day__schedule">
+            <div class="day__schedule-item"><strong>Заезд, расселение, обед/ужин</strong></div>
+            <div class="day__schedule-item"><strong>Согревающая баня</strong></div>
+            <div class="day__schedule-item"><strong>Костёр</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ДЕНЬ 2 -->
+    <div class="day fade-up">
+      <div class="day__head">
+        <div class="day__num">02 · 24 июля</div>
+        <div class="day__name">Хранители памяти</div>
+        <div class="day__toggle"></div>
+      </div>
+      <div class="day__body">
+        <div class="day__body-inner">
+          <div></div>
+          <div>
+            <div class="day__schedule">
+              <div class="day__schedule-item">
+                <strong>Утренние ритуалы и дыхательные практики</strong>
+                <p>Динамическая медитация с фланкировкой — зарядка с шашкой, оздоровительная практика от местного казака.</p>
+              </div>
+              <div class="day__schedule-item"><strong>Завтрак</strong></div>
+              <div class="day__schedule-item">
+                <strong>Знакомство-хороводотерапия с Александром Головиным</strong>
+                <p>Александр Головин — человек-хранитель музыкальной памяти Чарыша. Мультиинструменталист, педагог и руководитель Дома русской традиционной культуры. С ансамблем «Канареечка» он много лет собирает вокруг себя детей и взрослых, помогая через фольклор и живое звучание вспомнить свои корни.</p>
+              </div>
+              <div class="day__schedule-item"><strong>Прогулка</strong></div>
+              <div class="day__schedule-item"><strong>Обед</strong></div>
+              <div class="day__schedule-item">
+                <strong>В гости к Гению Места — Александру Полянскому</strong>
+                <p>Изобретатель, настоящий «Кулибин» местности. Проникаемся творениями.</p>
+              </div>
+              <div class="day__schedule-item"><strong>Прогулка на лошадях с чаем на закате</strong></div>
+              <div class="day__schedule-item"><strong>Ужин</strong></div>
+              <div class="day__schedule-item"><strong>Костёр</strong></div>
+            </div>
+            <div class="day__photos day__photos--mix">
+              <img src="assets/img/practices/practice-1.png" alt="Утренние практики">
+              <img src="assets/img/horovod/horovod-1.png" alt="Хороводы">
+              <img src="assets/img/horovod/horovod-2.png" alt="Хороводы">
+              <img src="assets/img/practices/practice-2.png" alt="Практики">
+              <img src="assets/img/practices/practice-3.png" alt="Практики">
+              <img src="assets/img/atmosphere/atm-2.png" alt="Атмосфера">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ДЕНЬ 3 -->
+    <div class="day fade-up">
+      <div class="day__head">
+        <div class="day__num">03 · 25 июля</div>
+        <div class="day__name">Сплав по Чарышу</div>
+        <div class="day__toggle"></div>
+      </div>
+      <div class="day__body">
+        <div class="day__body-inner">
+          <div></div>
+          <div>
+            <div class="day__schedule">
+              <div class="day__schedule-item"><strong>Скорые утренние ритуалы</strong></div>
+              <div class="day__schedule-item"><strong>Завтрак</strong></div>
+              <div class="day__schedule-item">
+                <strong>Сплав по горной реке Чарыш</strong>
+                <p>С обедом на костре и арт-пикником.</p>
+              </div>
+              <div class="day__schedule-item"><strong>Лесные ванны</strong></div>
+              <div class="day__schedule-item"><strong>Банная церемония</strong></div>
+              <div class="day__schedule-item"><strong>Ужин</strong></div>
+            </div>
+            <div class="day__photos day__photos--3">
+              <img src="assets/img/splav/splav-1.png" alt="Сплав">
+              <img src="assets/img/splav/splav-2.png" alt="Сплав">
+              <img src="assets/img/splav/splav-3.png" alt="Сплав">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ДЕНЬ 4 -->
+    <div class="day fade-up">
+      <div class="day__head">
+        <div class="day__num">04 · 26 июля</div>
+        <div class="day__name">Глина и музыка</div>
+        <div class="day__toggle"></div>
+      </div>
+      <div class="day__body">
+        <div class="day__body-inner">
+          <div></div>
+          <div>
+            <div class="day__schedule">
+              <div class="day__schedule-item"><strong>Дыхательные практики</strong></div>
+              <div class="day__schedule-item"><strong>Завтрак</strong></div>
+              <div class="day__schedule-item"><strong>Хороводы</strong></div>
+              <div class="day__schedule-item">
+                <strong>В гости к Гению Места — мастерам гитар</strong>
+                <p>Мы отправимся к волшебникам, что творят настоящие гитары и являются абсолютными виртуозами музыки. Вместе создадим музыку и познакомимся с секретами инструментов.</p>
+              </div>
+              <div class="day__schedule-item"><strong>Обед</strong></div>
+              <div class="day__schedule-item">
+                <strong>Творчество с хранителем Юрием Николаевичем</strong>
+                <p>Он копает глину, которой миллионы лет, и творит из неё шедевры. Вместе сотворим изделия и попробуем обрести навыки работы на гончарном круге.</p>
+              </div>
+              <div class="day__schedule-item"><strong>Ужин</strong></div>
+              <div class="day__schedule-item"><strong>Сказки у костра с какао-церемонией</strong></div>
+            </div>
+            <div class="day__photos day__photos--4">
+              <img src="assets/img/clay/clay-1.png" alt="Глина">
+              <img src="assets/img/clay/clay-2.png" alt="Глина">
+              <img src="assets/img/clay/clay-3.png" alt="Глина">
+              <img src="assets/img/clay/clay-4.png" alt="Глина">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ДЕНЬ 5 -->
+    <div class="day fade-up">
+      <div class="day__head">
+        <div class="day__num">05 · 27 июля</div>
+        <div class="day__name">Травы и игрушка</div>
+        <div class="day__toggle"></div>
+      </div>
+      <div class="day__body">
+        <div class="day__body-inner">
+          <div></div>
+          <div>
+            <div class="day__schedule">
+              <div class="day__schedule-item"><strong>Дыхательные практики</strong></div>
+              <div class="day__schedule-item"><strong>Завтрак</strong></div>
+              <div class="day__schedule-item">
+                <strong>Путешествие на вездеходах на сбор трав</strong>
+                <p>Со знахарем, что поведает нам тайны растений: как правильно их собирать, как с ними договариваться и что с ними делать.</p>
+              </div>
+              <div class="day__schedule-item"><strong>Лесные ванны</strong></div>
+              <div class="day__schedule-item"><strong>Обед</strong></div>
+              <div class="day__schedule-item">
+                <strong>Народная игрушка своими руками</strong>
+                <p>Из природных материалов с местной рукодельницей.</p>
+              </div>
+              <div class="day__schedule-item"><strong>Ужин</strong></div>
+              <div class="day__schedule-item"><strong>Сказки у костра</strong></div>
+            </div>
+            <div class="day__photos day__photos--3">
+              <img src="assets/img/kids/kid-1.png" alt="Дети">
+              <img src="assets/img/kids/kid-2.png" alt="Дети">
+              <img src="assets/img/kids/kid-3.png" alt="Дети">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ДЕНЬ 6 -->
+    <div class="day fade-up">
+      <div class="day__head">
+        <div class="day__num">06 · 28 июля</div>
+        <div class="day__name">Прощание</div>
+        <div class="day__toggle"></div>
+      </div>
+      <div class="day__body">
+        <div class="day__body-inner">
+          <div></div>
+          <div class="day__schedule">
+            <div class="day__schedule-item"><strong>Дыхательные практики · завтрак</strong></div>
+            <div class="day__schedule-item"><strong>Хоровод завершающий</strong></div>
+            <div class="day__schedule-item"><strong>Отъезд</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ЛОКАЦИЯ -->
+<section class="location">
+  <div class="container">
+    <div class="section-num fade-up">07 · Локация</div>
+    <div class="location__head">
+      <h2 class="location__title fade-up">
+        Чарыш —<br>
+        <span class="accent">деревенский</span><br>
+        курорт
+      </h2>
+      <p class="location__sub fade-up">Проживание в уютных базах между гор, на берегу реки</p>
+    </div>
+
+    <div class="location__grid stagger">
+      <div class="location__card fade-up"><img src="assets/img/location/loc-1.png" alt="Усадьба"></div>
+      <div class="location__card fade-up"><img src="assets/img/location/loc-2.png" alt="Номер"></div>
+      <div class="location__card fade-up"><img src="assets/img/location/loc-3.png" alt="Беседка"></div>
+    </div>
+
+    <div class="location__features stagger">
+      <div class="fade-up">
+        <div class="location__feature-num">01</div>
+        <p class="location__feature-text">«Усадьба Серебренниковых» и «Белый Берег» расположены между гор, на берегу реки Чарыш.</p>
+      </div>
+      <div class="fade-up">
+        <div class="location__feature-num">02</div>
+        <p class="location__feature-text">На территории — летний бассейн с подогревом, спортивные площадки, беседки с печью-барбекю.</p>
+      </div>
+      <div class="fade-up">
+        <div class="location__feature-num">03</div>
+        <p class="location__feature-text">Проживание: в отдельно стоящих домиках с камином или благоустроенных номерах-коттеджах.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КОМАНДА -->
+<section class="team">
+  <div class="container">
+    <div class="section-num fade-up">08 · Душевная команда</div>
+    <div class="team__head">
+      <h2 class="team__title fade-up">
+        Те, кто <span class="accent">ведёт</span><br>
+        и держит пространство
+      </h2>
+    </div>
+
+    <div class="team__group-label fade-up">Ведущие</div>
+    <div class="team__row team__row--2 stagger">
+      <div class="team__card fade-up">
+        <div class="team__card-photo"><img src="assets/img/team/nina.png" alt="Нина Велленберг"></div>
+        <h3 class="team__card-name">Нина Велленберг</h3>
+        <p class="team__card-role">Режиссёр, художник, перформер. Создатель сообщества о новом родительстве Chilling Mama.</p>
+      </div>
+      <div class="team__card fade-up">
+        <div class="team__card-photo"><img src="assets/img/team/anna-sizova.png" alt="Анна Сизова"></div>
+        <h3 class="team__card-name">Анна Сизова</h3>
+        <p class="team__card-role">Рыцарь гуманной педагогики, режиссёр детско-родительских событий, сотворец Chilling Mama, пармастер и сказочник-декоратор.</p>
+      </div>
+    </div>
+
+    <div class="team__group-label fade-up">Организаторы</div>
+    <div class="team__row team__row--3 stagger">
+      <div class="team__card fade-up">
+        <div class="team__card-photo"><img src="assets/img/team/svetlana.png" alt="Светлана Антонова"></div>
+        <h3 class="team__card-name">Светлана Антонова</h3>
+        <p class="team__card-role">Идеолог, со-основатель, инвестор курорта Чарыш. Серийный предприниматель.</p>
+      </div>
+      <div class="team__card fade-up">
+        <div class="team__card-photo"><img src="assets/img/team/andrey.png" alt="Андрей Немцев"></div>
+        <h3 class="team__card-name">Андрей Немцев</h3>
+        <p class="team__card-role">Управляющий курорта Чарыш. Гид и главная служба заботы.</p>
+      </div>
+      <div class="team__card fade-up">
+        <div class="team__card-photo"><img src="assets/img/team/anna-shm.png" alt="Анна Шмигановская"></div>
+        <h3 class="team__card-name">Анна Шмигановская</h3>
+        <p class="team__card-role">Экзистенциальный психолог, учитель гуманной педагогики, предприниматель.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЦЕНА (ПЛЕЙСХОЛДЕР) -->
+<section class="price">
+  <div class="container">
+    <div class="price__inner">
+      <div class="fade-up">
+        <div class="section-num">09 · Что входит и стоимость</div>
+        <h2 class="price__title">
+          Условия<br>
+          <span class="accent">участия</span>
+        </h2>
+        <p class="price__text">Полный список включённого в программу и стоимость — будут добавлены в ближайшее время.</p>
+      </div>
+      <div class="price__placeholder fade-up">
+        <div class="price__placeholder-label">Скоро</div>
+        <div class="price__placeholder-text">Информация о пакете и цене</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- О CHILLING MAMA -->
+<section class="about-cm">
+  <div class="container">
+    <div class="about-cm__label fade-up">Chilling Mama</div>
+    <p class="about-cm__text fade-up">
+      Проект про нетривиальный совместный досуг для родителей и детей, вдохновлённый идеями гуманной педагогики, где родительство становится ресурсом, а детство — общей территорией радости, свободы и сотворчества.
+    </p>
+  </div>
+</section>
+
+<!-- ФИНАЛЬНАЯ CTA -->
+<section class="cta-final" id="cta">
+  <div class="cta-final__pattern"></div>
+  <div class="container">
+    <div class="cta-final__inner">
+      <h2 class="cta-final__title fade-up">
+        Чарыш ждёт <span class="accent">своих.</span>
+      </h2>
+      <div class="cta-final__dates fade-up">23 — 28 июля 2026</div>
+      <div class="cta-final__btns fade-up">
+        <a href="https://t.me/annashm888" target="_blank" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          Связаться · Telegram
+        </a>
+        <a href="https://max.ru/u/f9LHodD0cOJHyWlsvPA_5-yKotrTOaRc1keJ10b9jn6amk7fs1Y5GaFRgUw" target="_blank" class="btn btn--ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20l3-8 6 4 6-12 3 16z"/></svg>
+          Связаться · MAX
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">
+      <img src="assets/logo/logo_RGB_white.png" alt="Чарыш">
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <div class="footer__col-label">Выезд</div>
+        <p>23 — 28 июля</p>
+        <p>Чарыш · Алтай</p>
+        <p>Семьи с детьми от 6 лет</p>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-label">Связаться</div>
+        <a href="https://t.me/annashm888" target="_blank">Telegram · @annashm888</a>
+        <a href="https://max.ru/u/f9LHodD0cOJHyWlsvPA_5-yKotrTOaRc1keJ10b9jn6amk7fs1Y5GaFRgUw" target="_blank">MAX · Анна Шмигановская</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-label">Проект</div>
+        <p>Chilling Mama × Чарыш</p>
+        <p>Семейный выезд 2026</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 · Chilling Mama</span>
+    <span>Просто до глубины души</span>
+  </div>
+</footer>
+
+<script>
+// === ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ ===
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.fade-up, .fade-in').forEach(el => io.observe(el));
+
+// === АККОРДЕОН ДНЕЙ ===
+document.querySelectorAll('.day__head').forEach(head => {
+  head.addEventListener('click', () => {
+    const day = head.parentElement;
+    day.classList.toggle('is-open');
+  });
+});
+
+// Открыть первый день по умолчанию
+window.addEventListener('load', () => {
+  const firstDay = document.querySelector('.day');
+  if (firstDay) firstDay.classList.add('is-open');
+});
+
+// === ШАПКА: ПРЯЧЕМ ПРИ СКРОЛЛЕ ВНИЗ ===
+let lastScroll = 0;
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  const cur = window.scrollY;
+  if (cur > 200 && cur > lastScroll) {
+    header.classList.add('is-hidden');
+  } else {
+    header.classList.remove('is-hidden');
+  }
+  lastScroll = cur;
+});
+
+// === HERO: ПАРАЛЛАКС ФОНА ===
+const heroBg = document.querySelector('.hero__bg');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y < window.innerHeight && heroBg) {
+    heroBg.style.transform = `translateY(${y * 0.3}px) scale(${1 + y * 0.0002})`;
+  }
+});
+</script>
+
+</body>
+</html>
